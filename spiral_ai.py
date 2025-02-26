@@ -25,3 +25,5 @@ if __name__ == "__main__":
     spiral_ai = SpiralIterator(start=1)
     for _ in range(10):
         print(f"Spiral Expansion Value: {spiral_ai.next_value()}")
+print("Spiral AI Model Successfully Running!")
+"Added confirmation print statement to Spiral AI".
