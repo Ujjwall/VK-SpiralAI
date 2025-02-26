@@ -13,21 +13,26 @@ Decentralized intelligence → No need for corporate or government-controlled AI
 Adaptive and evolving AI → Continuously learns and refines itself without retraining.
 
 🛠 Installation & Setup
+
 🔹 Requirements
 SBP is built using Python and requires minimal dependencies. To get started, install the required libraries:
 
 bash
 Copy
 Edit
+
 pip install numpy scipy
+
 🔹 Cloning the Repository
 Clone the SBP repository to your local machine:
 
 bash
 Copy
 Edit
+
 git clone https://github.com/Ujjwall/VK-SpiralAI.git
 cd VK-SpiralAI
+
 🔹 Running the SBP Model
 Execute the basic SBP learning script:
 
