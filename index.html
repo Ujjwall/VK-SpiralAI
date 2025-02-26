@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiral AI Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #chatBox {
+            width: 60%;
+            height: 400px;
+            border: 1px solid #000;
+            padding: 10px;
+            margin: auto;
+            overflow-y: scroll;
+            background-color: #f9f9f9;
+        }
+        input {
+            width: 60%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function sendMessage() {
+            let userMessage = document.getElementById("userMessage").value;
+            if (!userMessage.trim()) return;
+
+            let chatBox = document.getElementById("chatBox");
+            chatBox.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
+
+            fetch("/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({message: userMessage})
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatBox.innerHTML += `<p><strong>Spiral AI:</strong> ${data.response}</p>`;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            });
+
+            document.getElementById("userMessage").value = "";
+        }
+    </script>
+</head>
+<body>
+    <h1>Spiral AI Chatbot</h1>
+    <div id="chatBox"></div>
+    <input type="text" id="userMessage" placeholder="Type your message here..." onkeypress="if(event.key === 'Enter') sendMessage()">
+    <button onclick="sendMessage()">Send</button>
+</body>
+</html>
